@@ -46,7 +46,7 @@ export const ticketService = {
         validNumbers.join(",") 
         );
 
-        const ticketUrl = `http://localhost:3000/ticket/${ticketId}`;
+        const ticketUrl = `https://loto-app-1-qyz9.onrender.com/ticket/${ticketId}`;
 
         return { ticketId, ticketUrl };
     },
