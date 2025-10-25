@@ -28,7 +28,9 @@ function Home(){
                 maxRedirects: 0 // Vrlo važno! Sprječava automatsko praćenje redirecta
                 });
                 console.log("User data:", res.data);
+                setUser(res.data);
             } catch (err) {
+                setUser(null);
                 if (err.response && err.response.status === 302) {
                 const redirectUrl = err.response.headers['location'];
                 console.log("Redirect to:", redirectUrl);
