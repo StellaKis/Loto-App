@@ -21,7 +21,7 @@ function Home(){
     //     }
     //   };
     //   fetchUser();
-        const fetchProfile = async () => {
+        const fetchUser = async () => {
             try {
                 const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", {
                 withCredentials: true,
