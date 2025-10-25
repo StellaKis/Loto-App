@@ -37,8 +37,8 @@ app.use(auth(config));
 app.use("/", ticketRoutes);
 
 app.get("/", (req, res) => {
-  // res.redirect("https://loto-app-1-qyz9.onrender.com");
-  res.json({ message: "Loto backend radi!" });
+  res.redirect("https://loto-app-1-qyz9.onrender.com");
+  // res.json({ message: "Loto backend radi!" });
 });
 
 app.get("/profile", requiresAuth(), (req, res) => {
