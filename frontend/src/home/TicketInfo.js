@@ -11,7 +11,7 @@ function TicketInfo() {
     useEffect(() => {
         const fetchTicket = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/ticket/${id}`);
+            const res = await fetch(`https://loto-app-b6qy.onrender.com/ticket/${id}`);
             if (!res.ok) throw new Error("Listić nije pronađen");
             const data = await res.json();
             setTicket(data);

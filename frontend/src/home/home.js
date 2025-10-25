@@ -13,7 +13,7 @@ function Home(){
     useEffect(() => {
       const fetchUser = async () => {
         try {
-          const res = await axios.get("http://localhost:4000/profile", { withCredentials: true });
+          const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", { withCredentials: true });
           setUser(res.data);
         } catch (err) {
           setUser(null);
@@ -25,7 +25,7 @@ function Home(){
     useEffect(() => {
         const fetchTicketCount = async () => {
         try {
-            const res = await axios.get("http://localhost:4000/count", {
+            const res = await axios.get("https://loto-app-b6qy.onrender.com/count", {
             withCredentials: true 
             });
             setTicketCount(res.data);
@@ -41,7 +41,7 @@ function Home(){
         const fetchLastDrawnNumbers = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:4000/lastDrawnNumbers",
+                    "https://loto-app-b6qy.onrender.com/lastDrawnNumbers",
                     { withCredentials: true }
                 );
                 setLastDrawnNumbers(res.data.numbers);
@@ -56,7 +56,7 @@ function Home(){
       useEffect(() => {
     const fetchRoundStatus = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/activeRound", {
+        const res = await axios.get("https://loto-app-b6qy.onrender.com/activeRound", {
           withCredentials: true,
         });
         setIsRoundOpen(!!res.data.roundId);
@@ -72,7 +72,7 @@ function Home(){
         <div>
             <h2>Loto 6/45</h2>
             <p>Prijavi se:</p>
-            <a href="http://localhost:4000/login">
+            <a href="https://loto-app-b6qy.onrender.com/login">
             <button>Prijava</button>
             </a>
         </div>
@@ -83,7 +83,7 @@ function Home(){
         <div>
             <h2>Loto 6/45</h2>
             <p>Prijavljen korisnik: {user.name}</p>
-            <a href="http://localhost:4000/logout">
+            <a href="https://loto-app-b6qy.onrender.com/logout">
                 <button>Logout</button>
             </a>
 

@@ -21,7 +21,7 @@ function TicketForm() {
     useEffect(() => {
       const fetchUser = async () => {
         try {
-          const res = await axios.get("http://localhost:4000/profile", { withCredentials: true });
+          const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", { withCredentials: true });
           setUser(res.data);
         } catch (err) {
           setUser(null);
@@ -35,7 +35,7 @@ function TicketForm() {
     useEffect(() => {
       const fetchActiveRound = async () => {
         try {
-          const res = await axios.get("http://localhost:4000/activeRound", { withCredentials: true });
+          const res = await axios.get("https://loto-app-b6qy.onrender.com/activeRound", { withCredentials: true });
           setActiveRound(res.data.roundId); 
         } catch (err) {
           if (err.response && err.response.data && err.response.data.message) {
@@ -55,7 +55,7 @@ function TicketForm() {
 
       try {
         const res = await axios.post(
-          "http://localhost:4000/createTicket",
+          "https://loto-app-b6qy.onrender.com/createTicket",
           { personalId, numbers }
         );
         setSuccess(res.data);
@@ -81,9 +81,9 @@ function TicketForm() {
     return (
       <div>
         <h2>Loto 6/45</h2>
-        <a href="http://localhost:3000/">Povratak</a>
+        <a href="https://loto-app-1-qyz9.onrender.com">Povratak</a>
         <p>Prijavljen korisnik: {user.name}</p>
-        <a href="http://localhost:4000/logout">
+        <a href="https://loto-app-b6qy.onrender.com/logout">
           <button>Logout</button>
         </a>
 

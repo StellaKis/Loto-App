@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://loto-app-1-qyz9.onrender.com',
   credentials: true
 }));
 app.use(express.json());
@@ -26,7 +26,7 @@ const config = {
   authRequired: false,          
   auth0Logout: true,
   secret: process.env.AUTH0_CLIENT_SECRET,
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://loto-app-b6qy.onrender.com',
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: `https://dev-48knub1ve523umrc.us.auth0.com`
 };
@@ -36,7 +36,7 @@ app.use(auth(config));
 app.use("/", ticketRoutes);
 
 app.get("/", (req, res) => {
-  res.redirect("http://localhost:3000");
+  res.redirect("https://loto-app-1-qyz9.onrender.com");
 });
 
 app.get("/profile", requiresAuth(), (req, res) => {
