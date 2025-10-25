@@ -11,6 +11,8 @@ dotenv.config();
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 app.use(cors({
   origin: 'https://loto-app-1-qyz9.onrender.com',
   credentials: true
@@ -29,7 +31,14 @@ const config = {
   secret: process.env.AUTH0_CLIENT_SECRET,
   baseURL: 'https://loto-app-b6qy.onrender.com',
   clientID: process.env.AUTH0_CLIENT_ID,
-  issuerBaseURL: `https://dev-48knub1ve523umrc.us.auth0.com`
+  issuerBaseURL: `https://dev-48knub1ve523umrc.us.auth0.com`,
+  session: {
+    cookie: {
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
+    }
+  }
 };
 
 app.use(auth(config));
