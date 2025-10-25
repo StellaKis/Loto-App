@@ -35,7 +35,7 @@ const config = {
   session: {
     cookie: {
       httpOnly: true,
-      sameSite: 'none',
+      sameSite: 'None',
       secure: true
     }
   }
