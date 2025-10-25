@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Home(){
     const [ticketCount, setTicketCount] = useState(null);
@@ -127,9 +128,9 @@ function Home(){
                 </a>
         )} */}
             {isRoundOpen ? (
-                <a href="/TicketForm">
+                <Link to="/TicketForm">
                 <button>Uplata listića</button>
-                </a>
+                </Link>
             ) : (
                 <p>Uplate trenutno nisu omogućene.</p>
             )}
