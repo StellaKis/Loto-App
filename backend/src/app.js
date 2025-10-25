@@ -15,6 +15,7 @@ app.use(cors({
   origin: 'https://loto-app-1-qyz9.onrender.com',
   credentials: true
 }));
+
 app.use(express.json());
 
 // // Health check

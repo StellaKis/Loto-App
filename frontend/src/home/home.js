@@ -11,15 +11,36 @@ function Home(){
     const [isRoundOpen, setIsRoundOpen] = useState(false);
 
     useEffect(() => {
-      const fetchUser = async () => {
-        try {
-          const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", { withCredentials: true });
-          setUser(res.data);
-        } catch (err) {
-          setUser(null);
-        }
-      };
-      fetchUser();
+    //   const fetchUser = async () => {
+    //     try {
+    //       const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", { withCredentials: true });
+    //       console.log(res.data);
+    //       setUser(res.data);
+    //     } catch (err) {
+    //       setUser(null);
+    //     }
+    //   };
+    //   fetchUser();
+        const fetchProfile = async () => {
+            try {
+                const res = await axios.get("https://loto-app-b6qy.onrender.com/profile", {
+                withCredentials: true,
+                maxRedirects: 0 // Vrlo važno! Sprječava automatsko praćenje redirecta
+                });
+                console.log("User data:", res.data);
+            } catch (err) {
+                if (err.response && err.response.status === 302) {
+                const redirectUrl = err.response.headers['location'];
+                console.log("Redirect to:", redirectUrl);
+
+                // Ako želiš, možeš preusmjeriti browser direktno
+                window.location.href = redirectUrl;
+                } else {
+                console.error("Greška prilikom dohvaćanja profila:", err);
+                }
+            }
+            }
+        fetchUser();
     }, []);
 
     useEffect(() => {
